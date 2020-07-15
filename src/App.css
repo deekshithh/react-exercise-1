@@ -9,3 +9,22 @@
 .bold{
 	font-weight: bold;
 }
+
+.Button {
+	font: inherit;
+	border: 1px solid blue;
+	padding: 8px;
+	cursor: pointer;
+}
+
+.Button.Green:hover {
+	background-color: red;
+}
+
+.Button.Green {
+	background-color: green;
+}
+
+.Button.Red {
+	background-color: red;
+}

@@ -46,17 +46,7 @@ class App extends Component {
   }
 
   render () {
-    const StyledButton = styled.button`
-      background-color: ${props => props.alt ? 'green': 'red'};
-      font: inherit;
-      border: 1px solid blue;
-      padding: 8px;
-      cursor: pointer;
-      &:hover {
-        background-color: yellow;
-        color: white;
-      }
-    `
+    let buttonClasses = [classes.Button];
 
     let persons = null;
 
@@ -73,11 +63,11 @@ class App extends Component {
           })}
         </div>
       );
-      // style.backgroundColor = 'red';
-      // style[':hover'] = {
-      //   backgroundColor: 'green',
-      //   color: 'black'
-      // }
+
+      buttonClasses.push(classes.Red);
+    }
+    else {
+      buttonClasses.push(classes.Green);
     }
 
     let assignedClasses = [];
@@ -92,7 +82,7 @@ class App extends Component {
       <div className={classes.App}>
         <h1>Hi, I'm a React App</h1>
         <p className={assignedClasses.join(' ')}>This is really working!</p>
-        <StyledButton onClick={this.togglePersonsHandler} alt={this.state.showPersons} >Toggle Persons</StyledButton>
+        <button onClick={this.togglePersonsHandler} alt={this.state.showPersons} className={buttonClasses.join(' ')} >Toggle Persons</button>
         {persons}
       </div>
     );
