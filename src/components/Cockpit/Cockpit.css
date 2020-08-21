@@ -1,4 +1,4 @@
-.App {
+.Cockpit {
   text-align: center;
 }
 
@@ -17,14 +17,14 @@
 	cursor: pointer;
 }
 
-.Button.Green:hover {
+.Green:hover {
 	background-color: red;
 }
 
-.Button.Green {
+.Green {
 	background-color: green;
 }
 
-.Button.Red {
+.Red {
 	background-color: red;
 }
