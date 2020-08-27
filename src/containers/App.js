@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit'
+import Aux from '../hoc/Aux';
+import WithClass from '../hoc/WithClass';
 
 class App extends Component {
 
@@ -64,7 +66,7 @@ class App extends Component {
     this.setState( { showPersons: !doesShow } );
   }
 
-  render () {
+  render() {
     let persons = null;
 
     if ( this.state.showPersons ) {
@@ -74,13 +76,12 @@ class App extends Component {
     }
     
     return (
-      <div className={classes.App}>
-        <Cockpit persons={this.state.persons} showPersons={this.state.showPersons} togglePersons={this.togglePersonsHandler}>
-          {persons}
-        </Cockpit>
-      </div>
+      <Aux>
+        <Cockpit personsLength={this.state.persons.length} showPersons={this.state.showPersons} togglePersons={this.togglePersonsHandler}></Cockpit>
+        {persons}
+      </Aux>
     );
   }
 }
 
-export default App;
+export default WithClass(App, classes.App);
