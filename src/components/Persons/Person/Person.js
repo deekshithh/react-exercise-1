@@ -16,6 +16,11 @@ class Person extends Component {
 	// 	console.log('[Persons.js] componentWillReceiveProps', props);
 	// }
 
+	constructor(props){
+		super(props);
+		this.lastInputElementRef = React.createRef();
+	}
+
 	shouldComponentUpdate(nextProps, nextState) {
 		console.log('[Persons.js] shouldComponentUpdate');
     return true
@@ -23,6 +28,7 @@ class Person extends Component {
 
 	componentDidMount() {
     console.log('[App.js] componentDidMount');
+    this.lastInputElementRef.current.focus();
   }
 
 	getSnapshotBeforeUpdate(nextProps, nextState){
@@ -35,7 +41,7 @@ class Person extends Component {
     	<Aux>
 	      <p onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age} years old!</p>
 	      <p>{this.props.children}</p>
-	      <input type="text" onChange={this.props.changed} value={this.props.name} />
+	      <input type="text" onChange={this.props.changed} value={this.props.name} ref={this.lastInputElementRef} />
 	    </Aux>
 	  )
 	}
